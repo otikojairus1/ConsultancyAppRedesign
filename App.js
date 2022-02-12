@@ -1,14 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import GettingStarted from './screens/Getting-started';
+import LandingScreen from './screens/LandingScreen';
+import Login from './screens/Login';
+import Signup from './screens/Signup';
+import Splash from './screens/splash';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+   // <GettingStarted />
+  //<Splash/>
+  // <LandingScreen/>
+  //<Login/>
+  <Signup/>
   );
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -16,5 +25,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    position:"relative"
   },
 });
+
+
+
