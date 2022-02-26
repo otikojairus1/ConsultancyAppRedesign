@@ -1,5 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Add_Adress from './screens/Add_Adress';
+import Dashboard from './screens/Dashboard';
 import GettingStarted from './screens/Getting-started';
 import LandingScreen from './screens/LandingScreen';
 import Login from './screens/Login';
@@ -13,7 +15,9 @@ export default function App() {
   //<Splash/>
   // <LandingScreen/>
   //<Login/>
-  <Signup/>
+ // <Signup/>
+ // <Add_Adress/>
+  <Dashboard />
   );
 }
 

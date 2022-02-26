@@ -1,39 +1,38 @@
 import { View, StyleSheet, TextInput, Dimensions,Text } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons';
 import React from 'react'
+import MapView from 'react-native-maps';
+
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-export default function Signup() {
+export default function Add_Adress() {
   return (
       <>
     <View style={styles.wrapper}>
       <MaterialIcons name="keyboard-arrow-left" size={24} color="black" />
     </View>
-    <View style={{height: 200,marginLeft:17, width: windowWidth, position:"absolute", top: 200}}>
-    <Text style={{fontSize: 35, fontWeight:'bold', color:'green'}}>Hello! Sign up as</Text>
-    <Text style={{fontSize: 35, fontWeight:'bold', color:'green'}}> Patient to get </Text>
-    <Text style={{fontSize: 35, fontWeight:'bold', color:'green'}}> started </Text>
+    <View style={{height: windowHeight,marginLeft:17, width: windowWidth, position:"absolute", top: 150}}>
+    <Text style={{fontSize: 35, fontWeight:'bold', color:'green'}}>Add your address to get started</Text>
+ 
     <View style={{height: 20}}></View>
     <View style={{backgroundColor: '#fff', elevation:7, height:65, justifyContent:'center',  
     borderBottomEndRadius: 20,
     borderBottomLeftRadius:20,
     borderTopEndRadius:20,
-    borderTopLeftRadius:20, marginBottom:10,
-    width:windowWidth*0.9, paddingBottom:2, paddingTop:2, paddingLeft:9}}>
-    <TextInput placeholder='Email Address' /> 
+    borderTopLeftRadius:20,
+    width:windowWidth*0.9, paddingBottom:2, marginBottom:5, paddingTop:2, paddingLeft:9}}>
+    <TextInput placeholder='Street Address' /> 
     </View>
 
-    {/* name */}
     <View style={{backgroundColor: '#fff', elevation:7, height:65, justifyContent:'center',  
     borderBottomEndRadius: 20,
     borderBottomLeftRadius:20,
-    borderTopEndRadius:20, marginBottom:10,
+    borderTopEndRadius:20,
     borderTopLeftRadius:20,
-    width:windowWidth*0.9, paddingBottom:2, paddingTop:2, paddingLeft:9}}>
-    <TextInput placeholder='Name' /> 
+    width:windowWidth*0.9, paddingBottom:2, marginBottom:5, paddingTop:2, paddingLeft:9}}>
+    <TextInput placeholder='Apartment Number' /> 
     </View>
-
-    {/* date of birth */}
 
     <View style={{backgroundColor: '#fff', elevation:7, height:65, justifyContent:'center',  
     borderBottomEndRadius: 20,
@@ -41,7 +40,7 @@ export default function Signup() {
     borderTopEndRadius:20,
     borderTopLeftRadius:20,
     width:windowWidth*0.9, paddingBottom:2, paddingTop:2, paddingLeft:9}}>
-    <TextInput placeholder='Date of Birth' /> 
+    <TextInput placeholder='City' /> 
     </View>
 
     <View style={{backgroundColor: '#fff', elevation:7, marginTop:10, height:65, justifyContent:'center',  
@@ -50,17 +49,27 @@ export default function Signup() {
     borderTopEndRadius:20,
     borderTopLeftRadius:20,
     width:windowWidth*0.9, paddingBottom:2, paddingTop:2, paddingLeft:9}}>
-    <TextInput secureTextEntry={true} placeholder='Password' /> 
+    <TextInput secureTextEntry={false} placeholder='Zip code' /> 
     </View>
+    {/* mapview */}
 
-    <View style={{marginLeft: 220, marginTop:10}}><Text style={{fontWeight:'bold', fontStyle:'italic'}}>Forgot Password?</Text></View>
+    <MapView
+    initialRegion={{
+      latitude: 37.78825,
+      longitude: -122.4324,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
+    }}
+  />
+
+   
 
     {/* button */}
     <View style={styles.button}> 
-      <Text style={{position:'absolute', left:130, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Sign In</Text>
+      <Text style={{position:'absolute', left:130, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Get Started</Text>
       
       </View>
-      <View style={{marginLeft: 10, marginTop:10}}><Text style={{fontWeight:'bold', fontStyle:'italic'}}>Dont have an account? Sign up</Text></View>
+      
 
     </View>
   
