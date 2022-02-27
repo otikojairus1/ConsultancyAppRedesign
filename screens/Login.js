@@ -91,6 +91,9 @@ const styles = StyleSheet.create({
         borderTopEndRadius:13,
         borderTopLeftRadius:13,
         marginTop:10
+    },
+    tes:{
+      width:2,
     }
   });
   
