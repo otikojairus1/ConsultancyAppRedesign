@@ -1,7 +1,8 @@
-import { View, Text,StyleSheet ,Dimensions,Image} from 'react-native'
+import { View, Text,StyleSheet ,Dimensions, TouchableOpacity, Image} from 'react-native'
 import React from 'react'
+
 const windowWidth = Dimensions.get('window').width;
-export default function LandingScreen() {
+export default function LandingScreen({navigation}) {
 
   return (
     <View style={styles.container}>
@@ -12,14 +13,21 @@ export default function LandingScreen() {
       <Text style={{fontSize:18, textAlign:'center', marginBottom:20}}>You can get suggestions from verified consultants for your instant treatment</Text>
       </View>
 
+    <TouchableOpacity onPress={function(){
+      navigation.navigate('Sign Up');
+    }}>
       <View style={styles.button}> 
       <Text style={{position:'absolute', left:130, marginTop:15,fontSize:20, fontWeight:'bold', color:"#fff" }}>Sign Up</Text>
       
       </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={()=>navigation.navigate('Login')}>
       <View style={styles.button}> 
       <Text style={{position:'absolute', left:130, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Sign In</Text>
       
       </View>
+      </TouchableOpacity>
      
     </View>
   )

@@ -1,14 +1,20 @@
-import { View, StyleSheet, TextInput, Dimensions,Text } from 'react-native'
+import { View, StyleSheet, TextInput, Dimensions,Text, TouchableOpacity } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons';
 import React from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-export default function Signup() {
+export default function Signup({navigation}) {
   return (
       <>
-    <View style={styles.wrapper}>
-      <MaterialIcons name="keyboard-arrow-left" size={24} color="black" />
-    </View>
+     
+          <View style={styles.wrapper}>
+          <TouchableOpacity onPress={()=>navigation.goBack()}>
+            <MaterialIcons name="keyboard-arrow-left" size={24} color="black" />
+            </TouchableOpacity>
+          </View>
+   
     <View style={{height: 200,marginLeft:17, width: windowWidth, position:"absolute", top: 200}}>
     <Text style={{fontSize: 35, fontWeight:'bold', color:'green'}}>Hello! Sign up as</Text>
     <Text style={{fontSize: 35, fontWeight:'bold', color:'green'}}> Patient to get </Text>

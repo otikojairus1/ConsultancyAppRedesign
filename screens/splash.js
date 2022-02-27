@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View, StyleSheet,Dimensions,Text, Image } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons';
 const windowWidth = Dimensions.get('window').width;
@@ -8,7 +8,14 @@ const {width} = Dimensions.get('window')
 const oval1Width = width * 1.25;
 const oval2Width = width * 0.7;
 
-export default function Splash() {
+export default function Splash({navigation}) {
+  useEffect(
+    function (){
+      setTimeout(function(){ 
+        navigation.navigate('Getting Started');
+      }, 1000);
+    }
+  );
   return (
     <View style={styles.container}>
       <Image source={require('../assets/splash-image.png') } style={styles.tinyLogo}/>

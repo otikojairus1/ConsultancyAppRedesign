@@ -1,15 +1,18 @@
-import { View, StyleSheet, TextInput, Dimensions,Text } from 'react-native'
+import { View, StyleSheet, TextInput, Dimensions,Text , TouchableOpacity} from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons';
 import React from 'react'
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-export default function Login() {
+export default function Login({navigation}) {
   return (
       <>
-    <View style={styles.wrapper}>
-      <MaterialIcons name="keyboard-arrow-left" size={24} color="black" />
-    </View>
-    <View style={{height: 200,marginLeft:17, width: windowWidth, position:"absolute", top: 200}}>
+      <TouchableOpacity onPress={()=>navigation.goBack()}>
+        <View style={styles.wrapper}>
+          <MaterialIcons name="keyboard-arrow-left" size={24} color="black" />
+        </View>
+    </TouchableOpacity>
+    <View style={{height: 200,marginLeft:17, width: windowWidth, position:"absolute", top: 150}}>
     <Text style={{fontSize: 35, fontWeight:'bold', color:'green'}}>Hello Again!</Text>
     <Text style={{fontSize: 35, fontWeight:'bold', color:'green'}}>Welcome </Text>
     <Text style={{fontSize: 35, fontWeight:'bold', color:'green'}}>Back </Text>
@@ -35,10 +38,12 @@ export default function Login() {
     <View style={{marginLeft: 220, marginTop:10}}><Text style={{fontWeight:'bold', fontStyle:'italic'}}>Forgot Password?</Text></View>
 
     {/* button */}
+    <TouchableOpacity onPress={()=>navigation.navigate('Add Address')}>
     <View style={styles.button}> 
       <Text style={{position:'absolute', left:130, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Sign In</Text>
       
       </View>
+      </TouchableOpacity>
       <View style={{marginLeft: 10, marginTop:10}}><Text style={{fontWeight:'bold', fontStyle:'italic'}}>Dont have an account? Sign up</Text></View>
 
     </View>

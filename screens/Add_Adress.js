@@ -1,12 +1,13 @@
-import { View, StyleSheet, TextInput, Dimensions,Text } from 'react-native'
+import { View, StyleSheet, TextInput, Dimensions,Text, TouchableOpacity } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons';
 import React from 'react'
 import MapView from 'react-native-maps';
 
 
+
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-export default function Add_Adress() {
+export default function Add_Adress({navigation}) {
   return (
       <>
     <View style={styles.wrapper}>
@@ -65,11 +66,13 @@ export default function Add_Adress() {
    
 
     {/* button */}
+    <TouchableOpacity onPress={()=>navigation.navigate('Dashboard')}>
     <View style={styles.button}> 
       <Text style={{position:'absolute', left:130, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Get Started</Text>
       
       </View>
       
+      </TouchableOpacity>
 
     </View>
   
