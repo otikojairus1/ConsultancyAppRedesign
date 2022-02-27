@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
         marginTop:10
     },
     tes:{
-      width:2,
+      width:20,
     }
   });
   
