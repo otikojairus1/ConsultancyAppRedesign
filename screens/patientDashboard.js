@@ -5,14 +5,14 @@ import { AntDesign } from '@expo/vector-icons';
 
 
 import Login from './Login';
-import Signup from './Signup';
 import Splash from './splash';
 import TabOne from './DoctorBottomTabs/TabOne';
+import TabTwo from './DoctorBottomTabs/TabTwo';
 
 const Tab = createBottomTabNavigator();
 
 
-export default function PatientDashboard() {
+export default function PatientDashboard({navigation}) {
   return (
     <Tab.Navigator
       initialRouteName="TabOne"
@@ -25,8 +25,8 @@ export default function PatientDashboard() {
     >
       <Tab.Screen
         name="TabOne"
-        component={TabOne}
-        //children={()=><Tutors propName={"sds"}/>}
+        //component={TabOne}
+        children={()=><TabOne navigation={navigation}/>}
 
         options={{
           tabBarLabel: '',
@@ -37,7 +37,8 @@ export default function PatientDashboard() {
       />
       <Tab.Screen
         name="Universities"
-        component={Login}
+        //component={TabTwo}
+        children={()=><TabTwo navigation={navigation}/>}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (
