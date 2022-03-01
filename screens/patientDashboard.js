@@ -2,12 +2,14 @@ import {React, useEffect, useState} from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { AntDesign } from '@expo/vector-icons';
-
+import KeyboardAvoidingComponent from './TestChat'
+import { Entypo } from '@expo/vector-icons';
 
 import Login from './Login';
 import Splash from './splash';
 import TabOne from './DoctorBottomTabs/TabOne';
 import TabTwo from './DoctorBottomTabs/TabTwo';
+import Shop from './DoctorBottomTabs/Shop';
 
 const Tab = createBottomTabNavigator();
 
@@ -49,7 +51,7 @@ export default function PatientDashboard({navigation}) {
       />
       <Tab.Screen
         name="Courses"
-        component={Splash}
+        component={ Login}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (
@@ -59,8 +61,19 @@ export default function PatientDashboard({navigation}) {
       />
 
 <Tab.Screen
+        name="Shop"
+        component={Shop}
+        options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="shop" size={24} color={color} />
+          ),  
+        }}
+      />
+
+<Tab.Screen
         name="Account"
-        component={Login}
+        component={KeyboardAvoidingComponent}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (
