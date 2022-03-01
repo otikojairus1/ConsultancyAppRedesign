@@ -62,13 +62,18 @@ export default function ProductDetails() {
 
       {/* submit section */}
 
-      <View style={{ height: 60,backgroundColor:"green"}}>
+      <View style={{ height: 60,backgroundColor:"green",display:"flex", paddingTop:5, flexDirection:'row'}}>
 
-        <View>
+        <View style={{marginLeft:14}}>
+          <Text style={{fontSize: 17,color:"#fff", fontWeight:'bold'}}> Price of Medicine</Text>
+          <Text style={{fontSize: 27,color:"#fff", fontWeight:'bold'}}>$30.00</Text>
 
         </View>
         <View>
-          
+          <View style={{height:40, width:40, paddingLeft:7, paddingTop:7, borderRadius:40, marginLeft:190, marginTop:8, backgroundColor:"#fff"}}>
+          <AntDesign name="arrowright" size={25} color="black" />
+          </View>
+
         </View>
       </View>
 
