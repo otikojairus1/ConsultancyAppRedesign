@@ -1,4 +1,4 @@
-import { View, Text, Dimensions ,StyleSheet,Image,TextInput,ScrollView} from 'react-native'
+import { View, Text, Dimensions , TouchableOpacity,StyleSheet,Image,TextInput,ScrollView} from 'react-native'
 import React from 'react'
 import { AntDesign,MaterialIcons,FontAwesome } from '@expo/vector-icons';
 
@@ -6,7 +6,7 @@ import { AntDesign,MaterialIcons,FontAwesome } from '@expo/vector-icons';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 let test;
-export default function Shop() {
+export default function Shop({navigation}) {
   return (
     <View style={{height: windowHeight, width:windowWidth, marginTop: 40,}}>
         {/* start of appbar */}
@@ -69,10 +69,10 @@ export default function Shop() {
 
                     </View>
 
-                    <View style={{height:30, width:30, borderRadius:50, paddingLeft:7, elevation:7, paddingTop:5, backgroundColor: 'green'}}>
+                    <TouchableOpacity onPress={()=>navigation.navigate('Product Details')} style={{height:30, width:30, borderRadius:50, paddingLeft:7, elevation:7, paddingTop:5, backgroundColor: 'green'}}>
                     <AntDesign name="arrowright" size={17} color="black" />
                         
-                    </View>
+                    </TouchableOpacity>
                     
                 </View>
 
@@ -94,10 +94,10 @@ export default function Shop() {
 
                     </View>
 
-                    <View style={{height:30, width:30, borderRadius:50, paddingLeft:7, elevation:7, paddingTop:5, backgroundColor: 'green'}}>
+                    <TouchableOpacity style={{height:30, width:30, borderRadius:50, paddingLeft:7, elevation:7, paddingTop:5, backgroundColor: 'green'}}>
                     <AntDesign name="arrowright" size={17} color="black" />
                         
-                    </View>
+                    </TouchableOpacity>
                     
                 </View>
 

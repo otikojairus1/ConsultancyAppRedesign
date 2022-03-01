@@ -62,7 +62,8 @@ export default function PatientDashboard({navigation}) {
 
 <Tab.Screen
         name="Shop"
-        component={Shop}
+        //component={Shop}
+        children={()=><Shop navigation={navigation}/>}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (
