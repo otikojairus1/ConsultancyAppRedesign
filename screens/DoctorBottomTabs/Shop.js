@@ -5,7 +5,7 @@ import { AntDesign,MaterialIcons,FontAwesome } from '@expo/vector-icons';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-
+let test;
 export default function Shop() {
   return (
     <View style={{height: windowHeight, width:windowWidth, marginTop: 40,}}>
