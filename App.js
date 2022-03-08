@@ -13,12 +13,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PatientDashboard from './screens/patientDashboard';
 import Chat from './screens/Chat';
 import ProductDetails from './screens/ProductDetails';
+import Cart from './screens/Cart';
+import Pickupstation from './screens/Pickupstation';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-     <Stack.Navigator  initialRouteName="Home">
+     <Stack.Navigator  initialRouteName="Pick Up">
         <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Getting Started" component={GettingStarted} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Landing" component={LandingScreen} options={{ headerShown: false, headerTitleAlign: "center" }}/>
@@ -28,6 +30,8 @@ export default function App() {
         <Stack.Screen name="Add Address" component={Add_Address} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Product Details" component={ProductDetails} options={{ headerShown: false, headerTitleAlign: "center" }}/>
+        <Stack.Screen name="Cart" component={Cart} options={{ headerShown: false, headerTitleAlign: "center" }}/>
+        <Stack.Screen name="Pick Up" component={Pickupstation} options={{ headerShown: false, headerTitleAlign: "center" }}/>
     </Stack.Navigator>
    </NavigationContainer>
   );

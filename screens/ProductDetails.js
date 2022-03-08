@@ -1,4 +1,4 @@
-import { View, Text, Dimensions,Image } from 'react-native'
+import { View, TouchableOpacity,Text, Dimensions,Image } from 'react-native'
 import React from 'react'
 import { AntDesign } from '@expo/vector-icons';
 
@@ -9,7 +9,7 @@ const {width} = Dimensions.get('window')
 const oval1Width = width * 1.25;
 const oval2Width = width * 0.4;
 
-export default function ProductDetails() {
+export default function ProductDetails({navigation}) {
   return (
     <View style={{height: windowHeight, width:windowWidth, marginTop:40}}>
 
@@ -69,12 +69,12 @@ export default function ProductDetails() {
           <Text style={{fontSize: 27,color:"#fff", fontWeight:'bold'}}>$30.00</Text>
 
         </View>
-        <View>
+        <TouchableOpacity onPress={()=>navigation.navigate('Cart')}>
           <View style={{height:40, width:40, paddingLeft:7, paddingTop:7, borderRadius:40, marginLeft:190, marginTop:8, backgroundColor:"#fff"}}>
           <AntDesign name="arrowright" size={25} color="black" />
           </View>
 
-        </View>
+        </TouchableOpacity>
       </View>
 
       
