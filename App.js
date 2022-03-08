@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Add_Address from './screens/Add_Adress';
+import { NativeBaseProvider, Box } from "native-base";
 
 import GettingStarted from './screens/Getting-started';
 import LandingScreen from './screens/LandingScreen';
@@ -15,12 +16,14 @@ import Chat from './screens/Chat';
 import ProductDetails from './screens/ProductDetails';
 import Cart from './screens/Cart';
 import Pickupstation from './screens/Pickupstation';
+import CardPayment from './screens/CardPayment';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
+    <NativeBaseProvider>
     <NavigationContainer>
-     <Stack.Navigator  initialRouteName="Pick Up">
+     <Stack.Navigator  initialRouteName="Card Payment">
         <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Getting Started" component={GettingStarted} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Landing" component={LandingScreen} options={{ headerShown: false, headerTitleAlign: "center" }}/>
@@ -32,8 +35,10 @@ export default function App() {
         <Stack.Screen name="Product Details" component={ProductDetails} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Cart" component={Cart} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Pick Up" component={Pickupstation} options={{ headerShown: false, headerTitleAlign: "center" }}/>
+        <Stack.Screen name="Card Payment" component={CardPayment} options={{ headerShown: false, headerTitleAlign: "center" }}/>
     </Stack.Navigator>
    </NavigationContainer>
+   </NativeBaseProvider>
   );
 }
 
