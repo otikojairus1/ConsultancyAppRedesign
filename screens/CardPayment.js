@@ -1,4 +1,4 @@
-import { View, Text, Dimensions, StyleSheet} from 'react-native'
+import { View, Text, Dimensions, StyleSheet, TouchableOpacity} from 'react-native'
 import React from 'react'
 import { AntDesign,MaterialIcons } from '@expo/vector-icons';
 
@@ -6,7 +6,7 @@ import { FontAwesome5 ,Fontisto} from '@expo/vector-icons';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default function CardPayment() {
+export default function CardPayment({navigation}) {
   return (
       <>
            <View style={{height: 50, display:'flex', marginTop:50, flexDirection:'row'}}>
@@ -29,6 +29,17 @@ export default function CardPayment() {
         <Text style={{ fontSize: 18, fontWeight:'bold'}}>Address</Text>
          <Text style={{fontWeight:'bold', fontSize:18}}>Edit</Text>
     </View>
+
+    <View style={{width:300, marginLeft:30, marginTop:30, marginRight:30}}>
+      <Text style={{fontSize: 17, fontWeight:"bold"}}>John Smigla Doe</Text>
+      <Text style={{fontSize: 17, fontWeight:"bold"}}>London, street 3, code 74733, upperhill</Text>
+    </View>
+    <TouchableOpacity onPress={()=>navigation.navigate('Payment Done')}>
+    <View style={styles.button}> 
+      <Text style={{position:'absolute', left:50, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Confirm Payment of $90.00</Text>
+      
+      </View>
+      </TouchableOpacity>
     
     </>
 
@@ -97,13 +108,13 @@ const styles = StyleSheet.create({
     
     button:{
       width: 300,
-      marginLeft:10,
+      marginLeft:30,
       height: 50,
       backgroundColor:"green",
       borderBottomEndRadius: 15,
       borderBottomLeftRadius:13,
       borderTopEndRadius:13,
       borderTopLeftRadius:13,
-      marginTop:10
+      marginTop:190
   },
 })

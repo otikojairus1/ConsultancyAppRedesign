@@ -17,13 +17,14 @@ import ProductDetails from './screens/ProductDetails';
 import Cart from './screens/Cart';
 import Pickupstation from './screens/Pickupstation';
 import CardPayment from './screens/CardPayment';
+import PaymentDone from './screens/PaymentDone';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NativeBaseProvider>
     <NavigationContainer>
-     <Stack.Navigator  initialRouteName="Card Payment">
+     <Stack.Navigator  initialRouteName="Splash">
         <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Getting Started" component={GettingStarted} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Landing" component={LandingScreen} options={{ headerShown: false, headerTitleAlign: "center" }}/>
@@ -36,6 +37,7 @@ export default function App() {
         <Stack.Screen name="Cart" component={Cart} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Pick Up" component={Pickupstation} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Card Payment" component={CardPayment} options={{ headerShown: false, headerTitleAlign: "center" }}/>
+        <Stack.Screen name="Payment Done" component={PaymentDone} options={{ headerShown: false, headerTitleAlign: "center" }}/>
     </Stack.Navigator>
    </NavigationContainer>
    </NativeBaseProvider>

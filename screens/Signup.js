@@ -63,7 +63,7 @@ export default function Signup({navigation}) {
 
     {/* button */}
     <View style={styles.button}> 
-      <Text style={{position:'absolute', left:130, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Sign In</Text>
+      <Text style={{position:'absolute', left:100, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Create an account</Text>
       
       </View>
       <View style={{marginLeft: 10, marginTop:10}}><Text style={{fontWeight:'bold', fontStyle:'italic'}}>Dont have an account? Sign up</Text></View>
