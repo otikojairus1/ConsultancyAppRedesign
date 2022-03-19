@@ -9,7 +9,10 @@ const {width} = Dimensions.get('window')
 const oval1Width = width * 1.25;
 const oval2Width = width * 0.4;
 
+
 export default function ProductDetails({navigation}) {
+  
+let [amount, setAmount] = React.useState(0);
   return (
     <View style={{height: windowHeight, width:windowWidth, marginTop:40}}>
 
@@ -45,15 +48,15 @@ export default function ProductDetails({navigation}) {
 
       <View style={{height:50,display:'flex', flexDirection:"row"}}>
 
-        <View style={{height: 40, width: 40,marginLeft:10, paddingLeft:8, paddingTop:5, borderRadius:10, borderColor:"black", borderWidth:3}}>
+        <TouchableOpacity onPress={()=>{setAmount(amount++)}} style={{height: 40, width: 40,marginLeft:10, paddingLeft:8, paddingTop:5, borderRadius:10, borderColor:"black", borderWidth:3}}>
         <AntDesign name="plus" size={20} color="black" />
-        </View>
+        </TouchableOpacity>
 
-        <Text style={{fontSize:20, marginLeft:5, marginTop:8, fontWeight:'bold'}}>1</Text>
+        <Text style={{fontSize:20, marginLeft:5, marginTop:8, fontWeight:'bold'}}>{amount}</Text>
 
-        <View style={{height: 40, width: 40,marginLeft:10, paddingLeft:8, paddingTop:5, borderRadius:10, borderColor:"black", borderWidth:3}}>
+        <TouchableOpacity onPress={()=>{setAmount(amount--)}}  style={{height: 40, width: 40,marginLeft:10, paddingLeft:8, paddingTop:5, borderRadius:10, borderColor:"black", borderWidth:3}}>
         <AntDesign name="minus" size={20} color="black" />
-        </View>
+        </TouchableOpacity >
 
       </View>
 
@@ -66,7 +69,7 @@ export default function ProductDetails({navigation}) {
 
         <View style={{marginLeft:14}}>
           <Text style={{fontSize: 17,color:"#fff", fontWeight:'bold'}}> Price of Medicine</Text>
-          <Text style={{fontSize: 27,color:"#fff", fontWeight:'bold'}}>$30.00</Text>
+          <Text style={{fontSize: 27,color:"#fff", fontWeight:'bold'}}>${amount*30}.00</Text>
 
         </View>
         <TouchableOpacity onPress={()=>navigation.navigate('Cart')}>

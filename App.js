@@ -18,6 +18,10 @@ import Cart from './screens/Cart';
 import Pickupstation from './screens/Pickupstation';
 import CardPayment from './screens/CardPayment';
 import PaymentDone from './screens/PaymentDone';
+import DoctorLandingScreen from './screens/doctorLanding'
+import DoctorSignup from './screens/DoctorSignUp';
+import DoctorLogin from './screens/DoctorLogin';
+import AddSuggestion from './screens/AddSuggestion';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -38,6 +42,10 @@ export default function App() {
         <Stack.Screen name="Pick Up" component={Pickupstation} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Card Payment" component={CardPayment} options={{ headerShown: false, headerTitleAlign: "center" }}/>
         <Stack.Screen name="Payment Done" component={PaymentDone} options={{ headerShown: false, headerTitleAlign: "center" }}/>
+        <Stack.Screen name="DoctorLanding" component={DoctorLandingScreen} options={{ headerShown: false, headerTitleAlign: "center" }}/>
+        <Stack.Screen name="DoctorSignUp" component={DoctorSignup} options={{ headerShown: false, headerTitleAlign: "center" }}/>
+        <Stack.Screen name="DoctorLogin" component={DoctorLogin} options={{ headerShown: false, headerTitleAlign: "center" }}/>
+        <Stack.Screen name="AddSuggestion" component={AddSuggestion} options={{ headerShown: false, headerTitleAlign: "center" }}/>
     </Stack.Navigator>
    </NavigationContainer>
    </NativeBaseProvider>

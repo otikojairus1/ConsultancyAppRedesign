@@ -16,11 +16,14 @@ export default function GettingStarted({navigation}) {
           <View style={styles.floating}><AntDesign name="arrowright" size={20} color="black" /></View>
       </View>
       </TouchableOpacity>
-
+      <TouchableOpacity onPress={()=>{
+        navigation.navigate('DoctorLanding');
+      }}>
       <View style={styles.card}>
           <Text style={{position:'absolute', top:40, left:40, marginBottom:12, fontSize:18, color:"#fff"}}>Get started as a CONSULTANT and {'\n'}share suggestions and sell {'\n'}medications</Text>
           <View style={styles.floating}><AntDesign name="arrowright" size={20} color="black" /></View>
       </View>
+      </TouchableOpacity>
     </View>
   )
 }

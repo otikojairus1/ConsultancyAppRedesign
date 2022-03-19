@@ -32,9 +32,9 @@ export default function PaymentDone({navigation}) {
  
   
 
-    <TouchableOpacity onPress={()=>navigation.navigate('Dashboard')}>
+    <TouchableOpacity onPress={()=>navigation.goBack()}>
     <View style={styles.button}> 
-      <Text style={{position:'absolute', left:80, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Continue to Dashboard</Text>
+      <Text style={{position:'absolute', left:80, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Continue Shopping</Text>
       
       </View>
       </TouchableOpacity>

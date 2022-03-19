@@ -4,7 +4,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { AntDesign } from '@expo/vector-icons';
 import KeyboardAvoidingComponent from './TestChat'
 import { Entypo } from '@expo/vector-icons';
-
+import axios from 'axios';
+import { BASE_URL } from '../API_KEY'
 import Login from './Login';
 import Splash from './splash';
 import TabOne from './DoctorBottomTabs/TabOne';
@@ -13,8 +14,51 @@ import Shop from './DoctorBottomTabs/Shop';
 
 const Tab = createBottomTabNavigator();
 
+let DataArray=[];
+let doctorsArray = [];
+export default function PatientDashboard({navigation, route}) {
+  const { name, account } = route.params;
 
-export default function PatientDashboard({navigation}) {
+const [data, setData] = useState([]);
+  useEffect(()=>{
+   // DataArray = [];
+    axios.get(BASE_URL+'/suggestions')
+    .then((res)=>{
+// //console.log(res.data.data);
+// let array;
+// array.push(res.data.data);
+
+res.data.data.map((element)=>{
+    DataArray.push(element);
+
+    
+})
+
+
+
+  setData(DataArray);
+  //console.log(DataArray);
+ // DataArray = [];
+
+//  fetch doctors
+
+axios.get(BASE_URL+'/doctors')
+.then((res)=>{
+  
+res.data.data.map((element)=>{
+  doctorsArray.push(element);
+//console.log(doctorsArray);
+  
+})
+})
+
+
+
+ 
+
+    })
+
+},[]);
   return (
     <Tab.Navigator
       initialRouteName="TabOne"
@@ -28,7 +72,7 @@ export default function PatientDashboard({navigation}) {
       <Tab.Screen
         name="TabOne"
         //component={TabOne}
-        children={()=><TabOne navigation={navigation}/>}
+        children={()=><TabOne DataArray={DataArray} name={name} account={account} navigation={navigation}/>}
 
         options={{
           tabBarLabel: '',
@@ -38,9 +82,9 @@ export default function PatientDashboard({navigation}) {
         }}
       />
       <Tab.Screen
-        name="Universities"
+        name="TabTwo"
         //component={TabTwo}
-        children={()=><TabTwo navigation={navigation}/>}
+        children={()=><TabTwo doctors={doctorsArray} navigation={navigation}/>}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (
@@ -49,16 +93,7 @@ export default function PatientDashboard({navigation}) {
           
         }}
       />
-      <Tab.Screen
-        name="Courses"
-        component={ Login}
-        options={{
-          tabBarLabel: '',
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name="tago" size={20} color={color} />
-          ),  
-        }}
-      />
+
 
 <Tab.Screen
         name="Shop"

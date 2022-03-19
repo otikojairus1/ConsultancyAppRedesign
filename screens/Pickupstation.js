@@ -8,7 +8,8 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 
-export default function Pickupstation({navigation}) {
+export default function Pickupstation({navigation, route}) {
+  const {cost} = route.params;
   let [location, setLocation] = React.useState("");
   return (
     <View style={{height: windowHeight, width:windowWidth, marginTop:40, }}>
@@ -50,7 +51,7 @@ export default function Pickupstation({navigation}) {
         </Select>
 </View>
 
-<TouchableOpacity onPress={()=>navigation.navigate('Card Payment')}>
+<TouchableOpacity onPress={()=>navigation.navigate('Card Payment',{"cost":cost})}>
     <View style={styles.button}> 
       <Text style={{position:'absolute', left:130, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Next</Text>
       

@@ -6,7 +6,8 @@ import { FontAwesome5 ,Fontisto} from '@expo/vector-icons';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default function CardPayment({navigation}) {
+export default function CardPayment({navigation, route}) {
+  const {cost} = route.params;
   return (
       <>
            <View style={{height: 50, display:'flex', marginTop:50, flexDirection:'row'}}>
@@ -36,7 +37,7 @@ export default function CardPayment({navigation}) {
     </View>
     <TouchableOpacity onPress={()=>navigation.navigate('Payment Done')}>
     <View style={styles.button}> 
-      <Text style={{position:'absolute', left:50, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Confirm Payment of $90.00</Text>
+      <Text style={{position:'absolute', left:50, marginTop:15, fontSize:20, fontWeight:'bold', color:"#fff" }}>Confirm Payment of ${cost}.00</Text>
       
       </View>
       </TouchableOpacity>

@@ -6,6 +6,7 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default function Cart({navigation}) {
+  const [ quantity, setQuantity] = React.useState(0);
   return (
     <View style={{width: windowWidth, height:windowHeight, marginTop:40, }}>
       
@@ -30,21 +31,19 @@ export default function Cart({navigation}) {
 
 
 
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <Card quantity={quantity} setQuantity={setQuantity}/>
+   
       {/* end of cards */}
 
-     <View style={{height:100, marginTop:200, display:'flex', flexDirection:'row', backgroundColor:"green"}}>
+     <View style={{height:100, marginTop:480, display:'flex', flexDirection:'row', backgroundColor:"green"}}>
 
     <View style={{flex:4,paddingLeft:15}}>
       <Text style={{ fontSize: 20, color:"#fff"}}>Total price of medicine</Text>
-      <Text style={{fontSize:30, color:'#fff', fontWeight:'bold'}}>$90.00</Text>
+      <Text style={{fontSize:30, color:'#fff', fontWeight:'bold'}}>${30*quantity}.00</Text>
 
     </View>
 
-    <TouchableOpacity onPress={()=>navigation.navigate('Pick Up')} style={{flex:1, paddingTop:7}}>
+    <TouchableOpacity onPress={()=>navigation.navigate('Pick Up', {"cost":30*quantity})} style={{flex:1, paddingTop:7}}>
 
       <View style={{height:50, width:50, borderRadius:50, paddingLeft:10, paddingTop:10, backgroundColor:"#fff"}}>
       <AntDesign name="arrowright" size={25} color="black" />
@@ -65,7 +64,8 @@ export default function Cart({navigation}) {
 
 
 
-function Card(){
+function Card({quantity, setQuantity}){
+  
     return (
 
     
@@ -88,17 +88,17 @@ function Card(){
       </View>
       <View style={{flex:1, paddingTop:5}}>
 
-          <View style={{height:27, width:27, borderWidth:2, borderRadius:7, paddingLeft:4, paddingTop:3, borderColor:'black'}}>
+          <TouchableOpacity onPress={()=>{setQuantity(quantity++)}} style={{height:27, width:27, borderWidth:2, borderRadius:7, paddingLeft:4, paddingTop:3, borderColor:'black'}}>
           <AntDesign name="plus" size={15} color="black" />
-          </View>
+          </TouchableOpacity>
 
           <View style={{ marginLeft:8}}>
-        <Text>1</Text>
+        <Text>{quantity}</Text>
           </View>
 
-          <View style={{height:27, width:27, borderWidth:2, borderRadius:7, paddingLeft:4, paddingTop:3, borderColor:'black'}}>
+          <TouchableOpacity  onPress={()=>{setQuantity(quantity++)}} style={{height:27, width:27, borderWidth:2, borderRadius:7, paddingLeft:4, paddingTop:3, borderColor:'black'}}>
           <AntDesign name="minus" size={15} color="black" />
-          </View>
+          </TouchableOpacity>
           
       </View>
     </View> 
